@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="form">
+        <h1 class="ui header" id="user_name" style="padding: 10px; border-bottom: 2px solid #333; font-size: 20px;">My Family</h1>
+        <!-- Let's Start -->
+        <form class="ui form" id="start" onsubmit="return getDetailsByMobileNumber(this)">
+            <h2 class="ui header">Let's Start</h2>
+            <h4 class="ui header">Find Your Family Tree</h4><br>
+            <div class="field">
+              <label>Mobile Number</label>
+              <input type="text" name="mobile_number" placeholder="Mobile Number" pattern="[0-9]{10}" title="10 Digit Mobile Number" required>
+            </div>
+            <button class="ui primary button" type="submit">Next</button>
+        </form>
+        <form class="ui form" id="add_user" onsubmit="return addUser(this)">
+            <h2 class="ui header">Register Yourself</h2>
+            <!-- <h4 class="ui header">Create Your Family Tree</h4><br> -->
+            <div class="field">
+              <label>Mobile Number</label>
+              <input type="text" name="mobile_number" placeholder="Mobile Number" pattern="[0-9]{10}" title="10 Digit Mobile Number" required>
+            </div>
+            <div class="field">
+              <label>Name</label>
+              <input type="text" name="name" placeholder="Name" title="Please enter name" required>
+            </div>
+            <div class="inline fields">
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="gender" tabindex="0" class="hidden" value="male" required>
+                        <label>Male</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="gender" tabindex="0" class="hidden" value="female" required>
+                        <label>Female</label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button class="ui primary button" type="submit">Register</button>
+        </form>
+        <form class="ui form" id="add_father" onsubmit="return addFather(this)">
+            <h2 class="ui header">Add Father</h2>
+            <!-- <h4 class="ui header">Create Your Family Tree</h4><br> -->
+            <div class="field">
+              <label>Mobile Number</label>
+              <input type="text" name="mobile_number" placeholder="Mobile Number" pattern="[0-9]{10}" title="10 Digit Mobile Number">
+            </div>
+            <div class="field">
+              <label>Name</label>
+              <input type="text" name="name" placeholder="Name" title="Please enter name" required>
+            </div>
+            <br>
+            <button class="ui primary button" type="submit">Add</button>
+        </form>
+        <form class="ui form" id="add_mother" onsubmit="return addMother(this)">
+            <h2 class="ui header">Add Mother</h2>
+            <!-- <h4 class="ui header">Create Your Family Tree</h4><br> -->
+            <div class="field">
+              <label>Mobile Number</label>
+              <input type="text" name="mobile_number" placeholder="Mobile Number" pattern="[0-9]{10}" title="10 Digit Mobile Number">
+            </div>
+            <div class="field">
+              <label>Name</label>
+              <input type="text" name="name" placeholder="Name" title="Please enter name" required>
+            </div>
+            <br>
+            <button class="ui primary button" type="submit">Add</button>
+        </form>
+        <form class="ui form" id="add_wife" onsubmit="return addWife(this)">
+            <h2 class="ui header">Add Wife</h2>
+            <!-- <h4 class="ui header">Create Your Family Tree</h4><br> -->
+            <div class="field">
+              <label>Mobile Number</label>
+              <input type="text" name="mobile_number" placeholder="Mobile Number" pattern="[0-9]{10}" title="10 Digit Mobile Number">
+            </div>
+            <div class="field">
+              <label>Name</label>
+              <input type="text" name="name" placeholder="Name" title="Please enter name" required>
+            </div>
+            <br>
+            <button class="ui primary button" type="submit">Add</button>
+        </form>
+        <form class="ui form" id="add_husband" onsubmit="return addHusband(this)">
+            <h2 class="ui header">Add Husband</h2>
+            <!-- <h4 class="ui header">Create Your Family Tree</h4><br> -->
+            <div class="field">
+              <label>Mobile Number</label>
+              <input type="text" name="mobile_number" placeholder="Mobile Number" pattern="[0-9]{10}" title="10 Digit Mobile Number">
+            </div>
+            <div class="field">
+              <label>Name</label>
+              <input type="text" name="name" placeholder="Name" title="Please enter name" required>
+            </div>
+            <br>
+            <button class="ui primary button" type="submit">Add</button>
+        </form>
+        <form class="ui form" id="add_sibling" onsubmit="return addSibling(this)">
+            <h2 class="ui header">Add Sibling</h2>
+            <div class="field">
+              <label>Mobile Number</label>
+              <input type="text" name="mobile_number" placeholder="Mobile Number" pattern="[0-9]{10}" title="10 Digit Mobile Number">
+            </div>
+            <div class="field">
+              <label>Name</label>
+              <input type="text" name="name" placeholder="Name" title="Please enter name" required>
+            </div>
+            <div class="inline fields">
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="gender" tabindex="0" class="hidden" value="male" required>
+                        <label>Male</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="gender" tabindex="0" class="hidden" value="female" required>
+                        <label>Female</label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button class="ui primary button" type="submit">Add</button>
+        </form>
+        <form class="ui form" id="add_child" onsubmit="return addChild(this)">
+            <h2 class="ui header">Add Child</h2>
+            <div class="field">
+              <label>Mobile Number</label>
+              <input type="text" name="mobile_number" placeholder="Mobile Number" pattern="[0-9]{10}" title="10 Digit Mobile Number">
+            </div>
+            <div class="field">
+              <label>Name</label>
+              <input type="text" name="name" placeholder="Name" title="Please enter name" required>
+            </div>
+            <div class="inline fields">
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="gender" tabindex="0" class="hidden" value="male" required>
+                        <label>Male</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="gender" tabindex="0" class="hidden" value="female" required>
+                        <label>Female</label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <button class="ui primary button" type="submit">Add</button>
+        </form>
+    </div>
+    <div class="wrapper">
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
